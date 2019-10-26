@@ -5,6 +5,13 @@ table! {
 }
 
 table! {
+    bookings (booking_id) {
+        booking_id -> Integer,
+        user_id -> Nullable<Integer>,
+    }
+}
+
+table! {
     users (user_id) {
         user_id -> Nullable<Integer>,
         user_name -> Varchar,
@@ -16,8 +23,10 @@ table! {
 }
 
 joinable!(admins -> users (user_id));
+joinable!(bookings -> users (user_id));
 
 allow_tables_to_appear_in_same_query!(
     admins,
+    bookings,
     users,
 );
