@@ -1,4 +1,4 @@
-use crate::database::models::{Admin,User};
+use crate::database::models::{Admin, User};
 use diesel::mysql::MysqlConnection;
 use diesel::prelude::*;
 use rocket_contrib::json::{Json, JsonValue};

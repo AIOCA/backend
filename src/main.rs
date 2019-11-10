@@ -25,6 +25,7 @@ fn main() {
             routes![
                 requests::register::user_register,
                 requests::login::user_login,
+                requests::estimate::estimate,
             ],
         )
         .attach(DB::fairing())

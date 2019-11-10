@@ -25,8 +25,4 @@ table! {
 joinable!(admins -> users (user_id));
 joinable!(bookings -> users (user_id));
 
-allow_tables_to_appear_in_same_query!(
-    admins,
-    bookings,
-    users,
-);
+allow_tables_to_appear_in_same_query!(admins, bookings, users,);

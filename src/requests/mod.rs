@@ -1,3 +1,4 @@
+pub mod estimate;
 pub mod login;
 pub mod register;
 
@@ -17,4 +18,14 @@ pub struct LoginForm {
 pub struct AuthRequestPayload<T> {
     pub token: String,
     pub data: T,
+}
+
+///EstimatePayload
+///used as structure for serialising login request forms
+#[derive(Deserialize)]
+pub struct EstimatePayload {
+    pub start_lat: f64,
+    pub start_long: f64,
+    pub stop_lat: f64,
+    pub stop_long: f64,
 }

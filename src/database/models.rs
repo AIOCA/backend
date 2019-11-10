@@ -1,4 +1,4 @@
-use crate::database::schema::{admins,users};
+use crate::database::schema::{admins, users};
 use serde_derive::{Deserialize, Serialize};
 
 #[derive(Identifiable, Queryable, FromForm, Insertable, Debug, Deserialize, Serialize)]
