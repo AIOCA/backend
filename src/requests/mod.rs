@@ -31,8 +31,7 @@ pub struct StartEndCoordinates {
     pub stop_long: f64,
 }
 
-
 #[derive(Deserialize)]
 pub struct YourNavigationResponse {
-    coordinates:Vec<Vec<f64>>,
+    coordinates: Vec<Vec<f64>>,
 }

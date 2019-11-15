@@ -11,8 +11,8 @@ extern crate diesel;
 
 pub mod auth;
 pub mod database;
-pub mod requests;
 pub mod http;
+pub mod requests;
 
 use crate::auth::cors::CORS;
 use crate::database::core::DB;
