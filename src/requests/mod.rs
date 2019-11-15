@@ -1,6 +1,7 @@
 pub mod estimate;
 pub mod login;
 pub mod register;
+pub mod route;
 
 use serde_derive::Deserialize;
 
@@ -20,12 +21,18 @@ pub struct AuthRequestPayload<T> {
     pub data: T,
 }
 
-///EstimatePayload
-///used as structure for serialising login request forms
+///StartEndCoordinates
+///used as structure for serialising requests with coordinates
 #[derive(Deserialize)]
-pub struct EstimatePayload {
+pub struct StartEndCoordinates {
     pub start_lat: f64,
     pub start_long: f64,
     pub stop_lat: f64,
     pub stop_long: f64,
+}
+
+
+#[derive(Deserialize)]
+pub struct YourNavigationResponse {
+    coordinates:Vec<Vec<f64>>,
 }

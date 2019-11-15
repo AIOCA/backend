@@ -12,6 +12,7 @@ extern crate diesel;
 pub mod auth;
 pub mod database;
 pub mod requests;
+pub mod http;
 
 use crate::auth::cors::CORS;
 use crate::database::core::DB;
@@ -26,6 +27,7 @@ fn main() {
                 requests::register::user_register,
                 requests::login::user_login,
                 requests::estimate::estimate,
+                requests::route::calculate_path,
             ],
         )
         .attach(DB::fairing())

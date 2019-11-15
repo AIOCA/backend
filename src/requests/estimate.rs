@@ -1,10 +1,10 @@
 //use crate::auth::auth_user;
-use crate::requests::EstimatePayload;
+use crate::requests::StartEndCoordinates;
 use rand::seq::SliceRandom;
 use rocket_contrib::json::{Json, JsonValue};
 
 #[post("/commute/estimate", data = "<data>")]
-pub fn estimate(data: Json<EstimatePayload>) -> Result<Json<JsonValue>, Json<JsonValue>> {
+pub fn estimate(data: Json<StartEndCoordinates>) -> Result<Json<JsonValue>, Json<JsonValue>> {
     let mut products = [
         ("Micro", 8),
         ("Mini", 10),
