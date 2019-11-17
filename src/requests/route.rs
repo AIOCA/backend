@@ -18,6 +18,7 @@ pub fn calculate_path(data: Json<StartEndCoordinates>) -> Result<Json<JsonValue>
             Ok(Json(json!({
                 "Ok": true,
                 "waypoint":response.coordinates,
+                "distance":response.properties.distance,
             })))
         }
         Err(err) => Ok(Json(json!({

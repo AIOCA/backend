@@ -1,10 +1,10 @@
 //use crate::auth::auth_user;
-use crate::requests::StartEndCoordinates;
+use crate::requests::EstimateData;
 use rand::seq::SliceRandom;
 use rocket_contrib::json::{Json, JsonValue};
 
 #[post("/commute/estimate", data = "<data>")]
-pub fn estimate(data: Json<StartEndCoordinates>) -> Result<Json<JsonValue>, Json<JsonValue>> {
+pub fn estimate(data: Json<EstimateData>) -> Result<Json<JsonValue>, Json<JsonValue>> {
     let mut products = [
         ("Micro", 8),
         ("Mini", 10),
@@ -23,15 +23,13 @@ pub fn estimate(data: Json<StartEndCoordinates>) -> Result<Json<JsonValue>, Json
         ("XL Intercity", 184),
     ];
     products.shuffle(&mut rand::thread_rng());
-    let distance = (((data.start_lat - data.stop_lat) * 100.0).powi(2)
-        + ((data.start_long - data.stop_long) * 100.0).powi(2))
-    .sqrt();
+    
     let products: Vec<(&str, f64)> = products
         .iter()
-        .map(|p| (p.0, f64::from(p.1) * distance))
+        .map(|p| (p.0, f64::from(p.1) * data.distance))
         .collect();
 
-    print!("distance {}", distance);
+    print!("distance {}", data.distance);
 
     Ok(Json(json!({
         "Ok": true,

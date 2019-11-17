@@ -32,6 +32,18 @@ pub struct StartEndCoordinates {
 }
 
 #[derive(Deserialize)]
+struct YourNavigationProperties {
+    distance:String,
+}
+
+#[derive(Deserialize)]
 pub struct YourNavigationResponse {
     coordinates: Vec<Vec<f64>>,
+    properties:YourNavigationProperties,
+}
+
+
+#[derive(Deserialize)]
+pub struct EstimateData {
+    distance:f64,
 }
